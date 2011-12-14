@@ -24,10 +24,10 @@ class SiriProxy::Plugin::Fat < SiriProxy::Plugin
     
   end
 
-  listen_for /how (big|large|fat|huge) is (.*) mom/i do [name]
+  listen_for /how (big|large|fat|huge) is (.*) mom/i do [somename]
     lines = IO.readlines(self.phrase_file)
     rl = rand(lines.count-1)
-    say "" + ["name"] + lines[rl]
+    say "" + somename + lines[rl]
     request_completed
   end
 
